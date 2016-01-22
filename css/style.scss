@@ -1,0 +1,683 @@
+/* RESET */
+
+* { 
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* SASSY variables */
+$dark: #101;
+$base-color: #003366;  //  older color: #02457c
+$base-color-transparent: transparentize($base-color, 1);
+$base-color-faded: transparentize($base-color, .04);
+$light-base: lighten($base-color, 10%);
+$darker-base: darken($base-color, 6%);
+$darker-base-faded: transparentize($darker-base, .04);
+$dark-base: darken($base-color, 12%);
+$dark-base-faded: transparentize($dark-base, .04);
+$greyed: lighten(grayscale($base-color), 70%);
+
+$second-color: #336600;
+$second-color-faded: transparentize($second-color, .2);
+$second-color-darker: darken($second-color, 10%);
+$second-color-darker-faded: transparentize($second-color-darker, .6);
+$second-color-dark: darken($second-color, 20%);
+$second-color-dark-faded: transparentize($second-color-dark, .2);
+
+$third-color: #663300;
+
+$header-font: 'Tinos', serif;
+$main-font: 'Helvetica', sans-serif;
+
+/* SASSY mixins */
+
+@mixin linear-gradient($start, $fromColor, $midColor, $toColor) {
+	  background-color: $midColor; /* Fallback Color */
+	  background: -webkit-linear-gradient($start, $fromColor, $midColor, $toColor); /* For Safari 5.1 to 6.0 */
+	  background: -o-linear-gradient($start, $fromColor, $midColor, $toColor); /* For Opera 11.1 to 12.0 */
+	  background: -moz-linear-gradient($start, $fromColor, $midColor, $toColor); /* For Firefox 3.6 to 15 */
+	  background: linear-gradient($start, $fromColor, $midColor, $toColor); /* Standard syntax */
+}
+
+/* MAIN TAGS */
+
+body {
+	background-image: url("../images/celtic-rectangle.png");
+	background-repeat:no-repeat;
+	background-position: center 12px;	 
+	font-size: 15px;
+	font-family: $main-font;
+}
+
+h2 {
+	font-size: 3.1rem;
+}
+
+h3 {
+	font-size: 2.5rem;
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.5rem;
+	position: relative;
+}
+
+nav a, .yellow-underline {
+
+	&:before {
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 2px;
+	  bottom: 0;
+	  left: 0;
+	  background-color: #FFFF00;
+	  visibility: hidden;
+	  -webkit-transform: scaleX(0);
+	  transform: scaleX(0);
+	  -webkit-transition: all 0.3s ease-in-out 0s;
+	  -moz-transition: all 0.3s ease-in-out 0s;
+	  -o-transition: all 0.3s ease-in-out 0s;
+	  transition: all 0.3s ease-in-out 0s;
+	}
+
+	&:hover:before {
+	  visibility: visible;
+	  -webkit-transform: scaleX(1);
+	  -moz-webkit-transform: scaleX(1);
+	  -o-transform: scaleX(1);
+	  transform: scaleX(1);
+	}
+	
+}
+
+hr {
+	width: 100%;
+}
+
+footer {
+	background-image: url("../images/long_celtic_knot2.png");
+	background-repeat:no-repeat;
+	background-position: center 12px;
+	width: 100%;
+	height: 190px;
+}
+
+/* IDs */
+
+#top-view, #skills-container, #current-container {
+	height: 680px;
+	@include linear-gradient(top, $base-color-faded, $darker-base-faded, $dark-base-faded);
+}
+
+#center-box {
+	padding-top: 10%;
+	//140px;	
+	width: 50%;
+}
+
+#quotes span {
+	padding: 0 5px;
+	font-size: 1.5rem;
+}
+
+#me-view {
+	height: 680px;
+	//background-color: $second-color-darker-faded;
+	//@include linear-gradient(top, $second-color-faded, $second-color-darker-faded, $second-color-dark-faded);
+	padding: 150px 0 0;
+
+}
+
+#me-panel {
+	margin: 0 auto;
+	height: auto;
+	max-width: 670px;
+	background-color: $dark;
+	color: #228B22;
+	border: 1px solid #228B22;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1.2rem;
+}
+
+#me-panel-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#likes {
+	width: 50%;
+}
+
+#me-panel img {
+	width: 100%;
+}
+
+#me-image {
+	position: relative;
+	width:45%
+}
+
+#me-image::before {
+
+	background-image: linear-gradient( left, 
+            $dark 0%, transparentize($dark, 1) 100% );
+        background-image: -moz-linear-gradient( left, 
+            $dark 0%, transparentize($dark, 1) 100% );
+        background-image: -ms-linear-gradient( left, 
+            $dark 0%, transparentize($dark, 1) 100% );
+        background-image: -o-linear-gradient( left, 
+            $dark 0%, transparentize($dark, 1) 100% );
+        background-image: -webkit-linear-gradient( left, 
+            $dark 0%, transparentize($dark, 1) 100% );
+
+
+	/*background-image: linear-gradient( left, 
+            $darker-base 0%, transparentize($darker-base, 1) 100% );
+        background-image: -moz-linear-gradient( left, 
+            $darker-base 0%, transparentize($darker-base, 1) 100% );
+        background-image: -ms-linear-gradient( left, 
+            $darker-base 0%, transparentize($darker-base, 1) 100% );
+        background-image: -o-linear-gradient( left, 
+            $darker-base 0%, transparentize($darker-base, 1) 100% );
+        background-image: -webkit-linear-gradient( left, 
+            $darker-base 0%, transparentize($darker-base, 1) 100% );*/
+
+	/*background-image: linear-gradient( left, 
+            $base-color 0%, $base-color-transparent 100% );
+        background-image: -moz-linear-gradient( left, 
+            $base-color 0%, $base-color-transparent 100% );
+        background-image: -ms-linear-gradient( left, 
+            $base-color 0%, $base-color-transparent 100% );
+        background-image: -o-linear-gradient( left, 
+            $base-color 0%, $base-color-transparent 100% );
+        background-image: -webkit-linear-gradient( left, 
+            $base-color 0%, $base-color-transparent 100% ); */
+
+    /*background-image: linear-gradient( right, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -moz-linear-gradient( right, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -ms-linear-gradient( right, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -o-linear-gradient( right, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -webkit-linear-gradient( right, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );*/
+
+    content: "\00a0";
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+#skills-view {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#projects-view {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: #E5EAEF;
+}
+
+#projects-view div {
+	padding: 0;
+	margin: 0;
+}
+
+#projects-view img {
+	width: 100%;
+	display: block;
+    position: relative
+}
+
+#old-portfolio-header {
+	margin: 3.9% 0;
+	font-size: 2rem;
+	background-color: #E5EAEF;
+}
+	
+#bottom-view {
+	height: 190px;
+	@include linear-gradient(top, $base-color-faded, $darker-base-faded, $dark-base-faded);
+}
+
+#bottom-view p {
+	padding: 5.5% 0;
+}
+
+/* Down Button */
+
+.down-button {
+	font-size: 3em;
+	text-align: center;
+	width: 30px;
+}
+
+#first-down {
+	margin: 3% auto 0;
+}
+
+.fa-arrow-circle-down:hover {
+	color: #FFFF00;
+}
+
+/* STANDARD CLASSES */
+
+.uppercase {
+ 	text-transform: uppercase;
+}
+
+.font-white {
+	color: #fff;
+}
+
+.header-font {
+	font-family: $header-font, serif;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.border-top {
+	border-top: 1px solid #000;
+}
+
+.relative {
+	position: relative;
+}
+
+.paragraph-pad {
+	padding-top: 9px;
+}
+
+.p-bigger {
+	font-size: 1.4rem;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.bolder {
+	font-weight: 700;
+}
+
+.no-display {
+	display: none;
+}
+
+.gradient-line {
+	border: 0;
+	height: 1px;
+	background: #000;
+	@include linear-gradient(left, $darker-base, #000, $darker-base);
+}
+
+.inner-shadow {
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
+.panel-hr {
+	border-color: #FFFF00;
+}
+
+.panel-color {
+	background-color: $third-color;
+}
+
+/* SOCIAL ICONS CLASSES */
+
+.social-icons {
+	width: 100px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.social-icons i{
+	font-size: 1.75em;
+	padding: 0 5px;
+}
+
+.social-icons i:hover{
+	color: #ffff00;
+}
+
+.social-icons a:hover{
+	-webkit-animation: jump 1s;
+	animation: jump 1s;
+}
+
+/* INFORMATION SECTIONS CLASSES */
+
+.section-header {
+	padding: 3%;
+}
+
+.section-information-width {
+	width: 75%;
+}
+
+.section-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.information-text {
+	padding: 2%;
+	font-size: 1.2rem;
+}
+
+/* PROJECTS CLASSES */
+
+@for $i from 1 through 6 {
+	.project-#{$i} {
+		order: $i;
+	}
+}
+
+.project-2 h2 {
+	margin: 26% 0;
+	font-size: 3rem;
+}
+
+.project-5 i {
+	font-size: 1.75rem;
+}
+
+.view {
+    width: 33.33%;
+    height: auto;
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+    text-align: center;
+}
+
+.view .mask {
+	height: 100%;
+	width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    padding: 2px 0 !important;
+}
+
+.view h3 {
+	color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1.5rem;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 15px 0 0 0;
+}
+
+.view p {
+	text-align: center;
+}
+
+.view p, .view ul {
+	font-size: 1rem;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 0px;
+}
+
+.view ul {
+	text-align: left !important;
+	margin-left: 10%;
+}
+
+.view a.see-site {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 1px #000;
+	font-size: 1.25rem;
+	margin: 10px auto 0;
+}
+
+.view a.see-site:hover {
+    box-shadow: 0 0 5px #000;
+}
+
+.view-first img { 
+    transition: all 0.2s linear;
+}
+.view-first .mask {
+    opacity: 0;
+    background-color: transparentize($base-color, .2);
+    transition: all 0.4s ease-in-out;
+}
+.view-first h3 {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.view-first p { 
+    transform: translateY(100px);
+    opacity: 0;
+	transition: all 0.2s linear;
+}
+.view-first a.see-site{
+    opacity: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.view-first:hover img { 
+	transform: scale(1.1);
+} 
+.view-first:hover .mask { 
+	opacity: 1;
+}
+.view-first:hover h3,
+.view-first:hover p,
+.view-first:hover a.see-site {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.view-first:hover p {
+    transition-delay: 0.1s;
+}
+.view-first:hover a.see-site {
+    transition-delay: 0.2s;
+}
+
+
+/* KEYFRAMES */
+
+@-webkit-keyframes jump {
+	0% {top: 0;}
+	50% {top: -5px;}
+	100% {top: 0;}
+}
+
+@keyframes jump {
+	0% {top: 0;}
+	50% {top: -5px;}
+	100% {top: 0;}
+}
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 1265px) {
+
+	.view {
+		width: 50%;
+	}
+
+	.project-1 {
+		order: 2;
+	}
+
+	.project-2 {
+		order: 1;
+		height: 100px;
+	}
+
+	.project-2 h2 {
+		margin: 32px 0;
+		font-size: 2rem;
+	}
+}
+
+@media all and (max-width: 841px) {
+
+	.view {
+		width: 100%;
+	}
+
+	#skills-container {
+		height: 550px !important;
+	}
+}
+
+@media all and (max-width: 688px) {
+
+	#center-box {
+		width: 90%;
+	}
+
+	h2 {
+		font-size: 2.1rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	a {
+		font-size: 1.2rem;
+	}
+
+	footer {
+		background-image: none;
+	}
+
+	footer, #bottom-view {
+		height: 50px;
+	}
+
+	#bottom-view p {
+		padding: 16px;
+	}
+
+	.p-bigger {
+		font-size: 1rem;
+	}
+
+	#me-panel-top {
+		flex-direction: column;
+	}
+
+	#likes {
+		width: 100%;
+		order: 2;
+
+	}
+
+	#me-image {
+
+		width: 90%;
+		order: 1;
+		margin: 0 auto;
+	}
+
+	#me-view {
+		height: 100%;
+		//background-color: $second-color-darker-faded;
+		//@include linear-gradient(top, $second-color-faded, $second-color-darker-faded, $second-color-dark-faded);
+		padding: 0 0;
+	}
+
+	#me-panel {
+		border-radius: 0;
+	}
+
+	.information-text p {
+		font-size: 1rem;
+	}
+
+	.project-2 {
+		order: 1;
+		height: 40px;
+	}
+
+	.project-2 h2 {
+		margin: 10px 0;
+		font-size: 1.3rem;
+	}
+
+	.view h3 {
+		font-size: 1.1rem;
+		margin: 0;
+	}
+
+	.view p, .view ul {
+		font-size: .8rem;
+	    padding-top: 0;
+	}
+
+	.view a.see-site {
+		font-size: 1rem;
+	}
+
+	.display-when-big {
+		display: none;
+	}
+
+}
+
+@media all and (max-width: 460px) {
+
+	#current-container {
+		height: 650px;
+	}
+
+}
