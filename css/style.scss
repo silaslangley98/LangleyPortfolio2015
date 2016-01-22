@@ -115,8 +115,7 @@ footer {
 }
 
 #center-box {
-	padding-top: 10%;
-	//140px;	
+	padding-top: 8.5%;
 	width: 50%;
 }
 
@@ -262,11 +261,11 @@ footer {
 .down-button {
 	font-size: 3em;
 	text-align: center;
-	width: 30px;
+	width: 40px;
 }
 
 #first-down {
-	margin: 3% auto 0;
+	margin: 1% auto 0;
 }
 
 .fa-arrow-circle-down:hover {
@@ -529,7 +528,6 @@ footer {
     transition-delay: 0.2s;
 }
 
-
 /* KEYFRAMES */
 
 @-webkit-keyframes jump {
@@ -592,7 +590,7 @@ footer {
 		font-size: 1.5rem;
 	}
 
-	a {
+	a, .down-button {
 		font-size: 1.2rem;
 	}
 
